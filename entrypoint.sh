@@ -15,7 +15,7 @@ ssh-keyscan aur.archlinux.org >> "${HOME}/.ssh/known_hosts"
 echo "Writing SSH Private keys to file"
 echo -e "${INPUT_SSH_PRIVATE_KEY//_/\\n}" > "${HOME}/.ssh/aur"
 
-chmod 600 "${HOME}/.ssh/aur*"
+chmod 600 "${HOME}"/.ssh/aur*
 
 echo "Setting up Git"
 git config --global user.name "${INPUT_COMMIT_USERNAME}"
