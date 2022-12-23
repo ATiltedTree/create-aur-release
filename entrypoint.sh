@@ -2,7 +2,11 @@
 
 set -o errexit -o pipefail -o nounset
 
-NEW_RELEASE=${GITHUB_REF##*/v}
+if [[ -z "${INPUT_VERSION}" ]]; then
+  NEW_RELEASE=${GITHUB_REF##*/v}
+else
+  NEW_RELEASE=${INPUT_VERSION}
+fi
 
 export HOME=/home/builder
 
