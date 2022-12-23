@@ -8,6 +8,10 @@ inputs:
   package_name:
     description: The name of the AUR package to update.
     required: true
+  package_version:
+    description: The version of the AUR package to publish.
+    required: false
+    default: ${{ github.ref_name }}
   commit_username:
     description: The username to use when creating the new commit.
     required: true
@@ -21,4 +25,4 @@ runs:
   using: docker
   image: Dockerfile
   args:
-    - ${{ inputs.package_name }} ${{ inputs.commit_username }} ${{ inputs.commit_email }} ${{ inputs.ssh_private_key }}
+    - ${{ inputs.package_name }} ${{ inputs.package_version }} ${{ inputs.commit_username }} ${{ inputs.commit_email }} ${{ inputs.ssh_private_key }}

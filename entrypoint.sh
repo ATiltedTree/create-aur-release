@@ -1,12 +1,8 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 set -o errexit -o pipefail -o nounset
 
-if [[ -z "${INPUT_VERSION}" ]]; then
-  NEW_RELEASE=${GITHUB_REF##*/v}
-else
-  NEW_RELEASE=${INPUT_VERSION#v}
-fi
+NEW_RELEASE="${INPUT_PACKAGE_VERSION#v}"
 
 export HOME=/home/builder
 
